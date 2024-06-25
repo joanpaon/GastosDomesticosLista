@@ -4,7 +4,7 @@ Project .....: GastosDomesticosLista
 Summary .....: Console CRUD + IN/OUT Personal Expenses
 Creation ....: 25/06/2024
 Author ......: José A. Pacheco Ondoño - joanpaon@gmail.com
-Remote ......: https://github.com/joanpaon/GestionInventarioLista.git
+Remote ......: https://github.com/joanpaon/GastosDomesticosLista.git
 IDE .........: NetBeans 22
 JDK .........: Oracle JDK 21
 
