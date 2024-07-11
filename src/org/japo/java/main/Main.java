@@ -1,5 +1,5 @@
-/*
- * Copyright 2023 José A. Pacheco - japolabs@gmail.com.
+/* 
+ * Copyright 2019 José A. Pacheco Ondoño - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,49 +15,36 @@
  */
 package org.japo.java.main;
 
+import java.util.Properties;
 import org.japo.java.app.App;
+import org.japo.java.libraries.UtilesPRP;
 
 /**
  *
- * @author José A. Pacheco - japolabs@gmail.com
+ * @author José A. Pacheco Ondoño
  */
 public final class Main {
 
-    // Clave de Acceso
-    private static final String CLAVE = "JAPO-Omicron-0";
-
-    // Constructor Predeterminado ( Oculto )
+    // Constructor Inaccesible
     private Main() {
     }
 
-    // Punto de Entrada
+    // Punto de Entrada al Programa
     public static void main(String[] args) {
-        if (validarAcceso(args)) {
-            // Objeto Lógica de Negocio
-            App app = new App();
+        if (UtilesMain.validarAcceso(args)) {
+            // Objeto Properties
+            Properties prp = new Properties();
 
-            // Lanzar la lógica de negocio
+            // Fichero + Recursos > Propiedades
+            UtilesPRP.importarPropiedades(prp);
+
+            // Objeto Lógica de Negocio
+            App app = new App(prp);
+
+            // Lanzar aplicacion
             app.launchApp();
         } else {
-            System.out.println("Acceso Denegado");
-            System.out.println("Contacte con el Servicio Técnico");
-            System.out.println("Gracias por su colaboración");
+            UtilesMain.depurar();
         }
-    }
-
-    // Validación Parámetros Ejecución
-    private static boolean validarAcceso(String[] args) {
-        // Referencia
-        boolean testOK;
-
-        // Validación
-        try {
-            testOK = args[0].equals(CLAVE);
-        } catch (Exception e) {
-            testOK = false;
-        }
-
-        // Retorno
-        return testOK;
     }
 }

@@ -17,6 +17,7 @@ package org.japo.java.app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import org.japo.java.entities.gasto.Gasto;
 import org.japo.java.entities.gasto.UtilesGasto;
 
@@ -29,7 +30,14 @@ public final class App {
     // Inventario - Colección
     private final List<Gasto> LISTA = new ArrayList<>();
 
-    public App() {
+    // Propiedades
+    private final Properties prp;
+
+    // Constructor Parametrizado
+    public App(Properties prp) {
+        // Propiedades de la Apicación
+        this.prp = prp;
+
         // Fichero CSV > Lista de Artículos
         UtilesGasto.importarDatos(LISTA);
     }

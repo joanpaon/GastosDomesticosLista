@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 José A. Pacheco Ondoño - joanpaon@gmail.com.
+ * Copyright 2024 José A. Pacheco - japolabs@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,13 @@
  */
 package org.japo.java.libraries;
 
-import java.util.Arrays;
-
 /**
  *
- * @author José A. Pacheco Ondoño - joanpaon@gmail.com
+ * @author José A. Pacheco - japolabs@gmail.com
  */
 public final class UtilesValidacion {
 
-    // Constructor Inaccesible
+    // Constructor Predeterminado ( Oculto )
     private UtilesValidacion() {
     }
 
@@ -41,14 +39,5 @@ public final class UtilesValidacion {
 
         // Retorno
         return testOK;
-    }
-
-    // Texto + [Lista] > Hay Ocurrencia o No
-    public static final boolean validar(String dato, String[] lista) {
-        // Ordena Lista
-        Arrays.sort(lista);
-
-        // Devuelve el resultado de la busqueda
-        return Arrays.binarySearch(lista, dato) >= 0;
     }
 }

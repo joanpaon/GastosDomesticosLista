@@ -23,11 +23,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import static org.japo.java.libraries.UtilesCSV.FICHERO_CSV;
-import static org.japo.java.libraries.UtilesCSV.MSG_ERR_CSV;
-import static org.japo.java.libraries.UtilesCSV.MSG_ERR_LIN;
-import static org.japo.java.libraries.UtilesCSV.REG_SEP_ESC;
-import static org.japo.java.libraries.UtilesCSV.REG_SEP_LEC;
+import org.japo.java.libraries.UtilesCSV;
 import org.japo.java.libraries.UtilesEntrada;
 import org.japo.java.libraries.UtilesValidacion;
 
@@ -579,7 +575,7 @@ public final class UtilesGasto {
                     // Validación de la linea
                     if (linea != null) {
                         // Linea > Tokens
-                        String[] tokens = linea.split(REG_SEP_LEC);
+                        String[] tokens = linea.split(UtilesCSV.REG_SEP_LEC);
 
                         // Tokens > Datos
                         Long id = Long.valueOf(tokens[0]);
@@ -598,17 +594,17 @@ public final class UtilesGasto {
                         lista.add(g);
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println(MSG_ERR_LIN);
+                    System.out.println(UtilesCSV.MSG_ERR_LIN);
                 }
             } while (linea != null);
         } catch (Exception e) {
-            System.out.println(MSG_ERR_CSV);
+            System.out.println(UtilesCSV.MSG_ERR_CSV);
         }
     }
 
     // Fichero CSV > Lista Artículos ( Ejemplo )
     public static final void importarDatos(List<Gasto> lista) {
-        importarDatos(lista, FICHERO_CSV);
+        importarDatos(lista, UtilesCSV.FICHERO_CSV);
     }
 
     // Lista Artículos > Fichero CSV
@@ -617,25 +613,25 @@ public final class UtilesGasto {
             for (Gasto a : lista) {
                 // Campos > Linea
                 StringBuilder linea = new StringBuilder();
-                linea.append(a.getIdd()).append(REG_SEP_ESC);
-                linea.append(a.getNom()).append(REG_SEP_ESC);
-                linea.append(a.getFec()).append(REG_SEP_ESC);
-                linea.append(a.getImp()).append(REG_SEP_ESC);
-                linea.append(a.getFrp()).append(REG_SEP_ESC);
-                linea.append(a.getPar()).append(REG_SEP_ESC);
+                linea.append(a.getIdd()).append(UtilesCSV.REG_SEP_ESC);
+                linea.append(a.getNom()).append(UtilesCSV.REG_SEP_ESC);
+                linea.append(a.getFec()).append(UtilesCSV.REG_SEP_ESC);
+                linea.append(a.getImp()).append(UtilesCSV.REG_SEP_ESC);
+                linea.append(a.getFrp()).append(UtilesCSV.REG_SEP_ESC);
+                linea.append(a.getPar()).append(UtilesCSV.REG_SEP_ESC);
                 linea.append(a.getCom()).append("\n");
 
                 // Linea > Fichero
                 fw.write(linea.toString());
             }
         } catch (Exception e) {
-            System.out.println(MSG_ERR_CSV);
+            System.out.println(UtilesCSV.MSG_ERR_CSV);
         }
     }
 
     // Lista Artículos > Fichero CSV ( Ejemplo )
     public static final void exportarDatos(List<Gasto> lista) {
-        exportarDatos(lista, FICHERO_CSV);
+        exportarDatos(lista, UtilesCSV.FICHERO_CSV);
     }
 
 }
