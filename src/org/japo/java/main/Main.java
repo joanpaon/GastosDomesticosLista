@@ -31,13 +31,13 @@ public final class Main {
 
     // Punto de Entrada al Programa
     public static void main(String[] args) {
-        if (UtilesMain.validarAcceso(args)) {
-            // Objeto Properties
-            Properties prp = new Properties();
+        // Objeto Properties
+        Properties prp = new Properties();
 
-            // Fichero + Recursos > Propiedades
-            UtilesPRP.importarPropiedades(prp);
+        // Fichero + Recursos > Propiedades
+        UtilesPRP.importarPropiedades(prp);
 
+        if (UtilesMain.validarAcceso(args, prp)) {
             // Objeto Lógica de Negocio
             App app = new App(prp);
 
